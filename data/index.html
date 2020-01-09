@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>ESP32 Web Server</title>
+ <script src="src/jquery-3.4.1.min.js"></script>
+ <script src="src/bootstrap.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="src/bootstrap.min.css">
+ <link rel="stylesheet" type="text/css" href="src/my.css">
+ <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+ <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+<body style="background-color: #e9ecef;">
+<div class="jumbotron jumbotron-fluid" style="padding-top:0px;padding-bottom:0px;">
+ <div class="container-fluid">
+  <div class="d-flex justify-content-between">
+   <div>
+    <h1 class="display-2">ESP32 Web Server</h1>
+    <p class="lead">AsyncWebServer with Bootstrap.</p>
+   </div>
+   <div>
+    <img src="src/esp32a.png" class="float-right my-pic-header" alt="ESP32">
+   </div>
+  </div>
+  <hr class="my-4" style="margin-top: 0.2rem !important; margin-bottom: 0.2rem !important;">
+  <div class="my-div-full my-div-full-right">
+   <button type="button" class="btn btn-md btn-outline-dark my-btn-5 my-btn-pic my-btn-pic-5 my-btn-5-gap" onclick="javascript:__doPostBack('Refresh', 'true');">
+    <img src="src/refresh.png" alt="refresh">
+    <div>REFRESH</div>   </button>   <button type="button" class="btn btn-md btn-outline-dark my-btn-5 my-btn-pic my-btn-pic-5" onclick="javascript:__doPostBack('Restart', 'true');">
+    <img src="src/power_blue.png" alt="restart">
+    <div>RESTART</div>   </button>  </div>  <p class="my-p-header" style="margin-top:-30px;">LED's</p>
+  <div class="my-div-mobile">
+   <button type="button" class="btn btn-lg btn-outline-dark my-btn-3 my-btn-pic my-btn-pic-3 my-btn-3-gap" onclick="javascript:__doPostBack('Led1', 'toggle');">
+    <img src="src/led_grey.png" alt="grey led">
+    <div>GPIO-18</div>
+   </button>
+   <button type="button" class="btn btn-lg btn-outline-dark my-btn-3 my-btn-pic my-btn-pic-3 my-btn-3-gap" onclick="javascript:__doPostBack('Led2', 'toggle');">
+    <img src="src/led_grey.png" alt="grey led">
+    <div>GPIO-19</div>
+   </button>
+   <button type="button" class="btn btn-lg btn-outline-dark my-btn-3 my-btn-pic my-btn-pic-3" onclick="javascript:__doPostBack('Led3', 'toggle');">
+    <img src="src/led_grey.png" alt="grey led">
+    <div>GPIO-21</div>
+   </button>
+  </div>
+  <div class="my-div-spacer">
+  </div>
+  <div class="my-div-mobile">
+   <a class="btn btn-outline-secondary btn-lg my-btn-3 my-btn-3-gap" role="button" onclick="javascript:__doPostBack('Led1', 'blinkstart');">BLINK ON</a>
+   <a class="btn btn-outline-secondary btn-lg my-btn-3 my-btn-3-gap" role="button" onclick="javascript:__doPostBack('Led2', 'blinkstart');">BLINK ON</a>
+   <a class="btn btn-outline-secondary btn-lg my-btn-3"              role="button" onclick="javascript:__doPostBack('Led3', 'blinkstart');">BLINK ON</a>
+  </div>
+  <div class="my-div-spacer">
+  </div>
+  <div class="my-div-mobile">
+   <a class="btn btn-outline-secondary btn-lg my-btn-1" role="button" onclick="javascript:__doPostBack('Trafficlight', 'on');">TRAFFIC LIGHTS ON</a>
+  </div>
+  <p class="my-p-header">DHT22</p>
+  <div class="my-div-mobile">
+   <p class="lead">2020-01-07 14:35:04.126</p>
+   <table class="my-table-1">
+     <tr>
+      <td style="text-align:right">Luftfeuchtigkeit:</td>
+      <td style="text-align:center"><img src="src/humidy_blue.png" alt="humidy"></td>
+      <td style="text-align:right" class="sensorvalue">24.10</td>
+      <td style="text-align:left"  class="sensorvalue">%</td>
+     </tr>
+     <tr>
+      <td style="text-align:right">Temperatur:</td>
+      <td style="text-align:center"><img src="src/temp_blue.png" alt="temperature"></td>
+      <td style="text-align:right" class="sensorvalue">24.70</td>
+      <td style="text-align:left"  class="sensorvalue">&deg;C</td>
+     </tr>
+   </table>
+  </div>
+  <p class="my-p-header">DS18B20</p>
+  <div class="my-div-mobile">
+   <p class="lead">2020-01-07 14:36:37.483</p>
+   <table class="my-table-1">
+     <tr>
+      <td style="text-align:right" class="macid">28-FC-05-2C-09-00-00-2F:</td>
+      <td style="text-align:center"><img src="src/temp_blue.png" alt="temperature"></td>
+      <td style="text-align:right" class="sensorvalue">25.50</td>
+      <td style="text-align:left"  class="sensorvalue">&deg;C</td>
+     </tr>
+     <tr>
+      <td style="text-align:right" class="macid">28-2D-BB-2C-09-00-00-31:</td>
+      <td style="text-align:center"><img src="src/temp_blue.png" alt="temperature"></td>
+      <td style="text-align:right" class="sensorvalue">25.50</td>
+      <td style="text-align:left"  class="sensorvalue">&deg;C</td>
+     </tr>
+   </table>
+  </div>
+  <p class="my-p-header" style="margin-top:25rem;">CSS</p>
+  <div>
+   <button type="button" class="btn btn-lg btn-outline-secondary my-cssident" onclick="getResolution();"></button>
+  </div>
+ </div>
+</div>
+<form id="esp32form" action="/" method="POST">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+</form>
+<script>
+ if (typeof __doPostBack == 'undefined') {
+   __doPostBack = function (eventTarget, eventArgument) {
+     var theForm = document.forms['esp32form'];
+     if (!theForm) {
+       theForm = document.forms.esp32form;
+     }
+     if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+       theForm.__EVENTTARGET.value = eventTarget;
+       theForm.__EVENTARGUMENT.value = eventArgument;
+       theForm.submit();
+     }
+   };
+ }
+</script>
+<script>
+ function getResolution() {
+  alert("screen resolution: " + screen.width + "x" + screen.height);
+ }
+</script>
+</body>
+</html>

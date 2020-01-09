@@ -1,0 +1,384 @@
+/* https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/ */
+
+
+body {
+ font-size: 1.5rem;
+}
+p {
+ margin-bottom: .5rem;
+}
+.my-pic-header {
+ margin-top: 0.5rem;
+ height: 96px;
+}
+.my-div-full {
+ width: 100%;
+ margin-top:1rem;
+}
+.my-div-full-right {
+ text-align:right;
+}
+.my-div-spacer {
+ height: 1rem;
+}
+.my-div-mobile {
+ width: 36.1rem;
+ /* margin-top:1rem; */
+}
+.my-div-mobile-right {
+ text-align:right;
+}
+.my-p-header {
+ margin-top:1rem;
+}
+.my-btn-1 {
+ width: 100%;
+}
+.my-btn-3 {
+ width: 11.5rem;
+}
+.my-btn-3-gap {
+ margin-right:0.35rem;
+}
+.my-btn-5 {
+ width: 6.3rem;
+}
+.my-btn-5-gap {
+ margin-right:0.7rem;
+}
+.my-btn-pic {
+ background-color: rgba(248, 249, 250, 1);
+}
+.my-btn-pic:hover {
+ background-color: rgba(218, 224, 229, 1);
+ color: black; /* #343a40; */
+}
+.my-btn-pic-3 {
+ height: 8rem;
+ width: 11.5rem;
+}
+.my-btn-pic-3 img {
+ height: 5rem;
+}
+.my-btn-pic-3 div {
+ font-size: 1.5rem;
+}
+.my-btn-pic-5 {
+ height: 6.3rem;
+}
+.my-btn-pic-5 img {
+ height: 4.1rem;
+}
+.my-btn-pic-5 div {
+ font-size: 1rem;
+}
+.my-table-1 {
+ margin-left:1rem;
+}
+.macid {
+ font-family:"Lucida Console";
+ font-size:1.25rem;
+}
+.sensorvalue {
+ font-size:3rem;
+}
+.my-table-1 td {
+}
+.my-table-1 td img {
+ height:3rem;
+}
+
+.my-cssident {
+  /* color:red; */
+}
+.my-cssident span {
+ display: none;
+}
+.my-cssident:after {
+ content: "CSS: Desktop";
+}
+
+@media only screen 
+    and (orientation : portrait) 
+{ 
+ .my-cssident span {
+  display: none;
+ }
+ .my-cssident:after {
+  content: "CSS: Desktop - portrait";
+ }
+}
+@media only screen 
+    and (orientation : landscape) 
+{ 
+ .my-cssident span {
+  display: none;
+ }
+ .my-cssident:after {
+  content: "CSS: Desktop - landscape";
+ }
+}
+
+/* iPhone 8 (Vergrößert) - portrait */
+@media only screen 
+    and (orientation : portrait) 
+    and (device-width : 320px) 
+    and (device-height : 568px) 
+    and (-webkit-device-pixel-ratio : 2)
+{ 
+ body {
+  font-size: 3.25rem;
+ }
+ .display-4 {
+  font-size: 5rem;
+ }
+ .lead {
+  font-size: 2.5rem;
+ }
+ .btn-lg {
+  font-size: 3rem;
+  line-height: 1.8;
+ }
+ .my-pic-header {
+  margin-top: 0.5rem;
+  height: 150px;
+ }
+ .my-div-full {
+  padding-right:0.3rem;
+ }
+ .my-div-mobile {
+  width: 59.1rem;
+ }
+ .my-btn-3 {
+  width: 19rem;
+ }
+ .my-btn-5 {
+  width: 10.7rem;
+ }
+ .my-btn-pic-3 {
+  height: 14rem;
+ }
+ .my-btn-pic-3 img {
+  height: 8rem;
+ }
+ .my-btn-pic-3 div {
+  font-size: 3rem;
+ }
+ .my-btn-pic-5 {
+  height: 10.7rem;
+  font-size: 1.5rem;
+ }
+ .my-btn-pic-5 img {
+  height: 7.25rem;
+ }
+ .my-btn-pic-5 div {
+  font-size: 1.8rem;
+ }
+ .macid {
+  font-family:"Courier";
+  font-size:2rem;
+ }
+ .sensorvalue {
+  font-size:5rem;
+ }
+ .my-table-1 td img {
+  height:8rem;
+ }
+ .my-cssident:after {
+  content: "CSS: iPhone 8 (Vergrößert) - portrait";
+ }
+}
+
+/* iPhone 8 (Vergrößert) - landscape */
+@media only screen 
+    and (orientation : landscape) 
+    and (device-width : 320px) 
+    and (device-height : 568px) 
+    and (-webkit-device-pixel-ratio : 2)
+{ 
+ body {
+  font-size: 2rem;
+ }
+ .display-4 {
+  font-size: 4rem;
+ }
+ .lead {
+  font-size: 1.8rem;
+ }
+ .btn-lg {
+  font-size: 1.8rem;
+ }
+ .my-pic-header {
+  margin-top: 0.5rem;
+  height: 130px;
+ }
+ .my-div-mobile {
+  width: 34.6rem;
+ }
+ .my-btn-3 {
+  width: 11rem;
+ }
+ .my-btn-5 {
+  width: 6rem;
+ }
+ .my-btn-pic-3 {
+  height: 9rem;
+ }
+ .my-btn-pic-3 img {
+  height: 5rem;
+ }
+ .my-btn-pic-3 div {
+  font-size: 1.8rem;
+ }
+ .my-btn-pic-5 {
+  height: 6rem;
+ }
+ .my-btn-pic-5 img {
+  height: 3.5rem;
+ }
+ .my-btn-pic-5 div {
+  font-size: 1rem;
+ }
+ .macid {
+  font-family:"Courier";
+  font-size:1.1rem;
+ }
+ .sensorvalue {
+ }
+ .my-table-1 td img {
+  height:5rem;
+ }
+ .my-cssident:after {
+  content: "CSS: iPhone 8 (Vergrößert) - landscape";
+ }
+}
+
+/* iPhone 8 (Standard) - portrait */
+@media only screen 
+    and (orientation : portrait) 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2)
+{ 
+ body {
+  font-size: 3.5rem;
+ }
+ .display-4 {
+  font-size: 5rem;
+ }
+ .lead {
+  font-size: 2.5rem;
+ }
+ .btn-lg {
+  font-size: 3rem;
+  line-height: 1.8;
+ }
+ .my-pic-header {
+  margin-top: 0.5rem;
+  height: 150px;
+ }
+ .my-div-full {
+  padding-right:0.3rem;
+ }
+ .my-div-mobile {
+  width: 100%; /* 59.25rem; */
+  padding-right:0.3rem;
+ }
+ .my-btn-3 {
+  width: 18.9rem;
+ }
+ .my-btn-5 {
+  width: 10.6rem;
+ }
+ .my-btn-pic-3 {
+  height: 14rem;
+  font-size: 2.75rem;
+ }
+ .my-btn-pic-3 img {
+  height: 8rem;
+ }
+ .my-btn-pic-3 div {
+  font-size: 3rem;
+ }
+ .my-btn-pic-5 {
+  height: 10.6rem;
+  font-size: 1.5rem;
+ }
+ .my-btn-pic-5 img {
+  height: 7rem;
+ }
+ .my-btn-pic-5 div {
+  font-size: 1.75rem;
+ }
+ .macid {
+  font-family:"Courier";
+  font-size:2rem;
+ }
+ .sensorvalue {
+  font-size:5rem;
+ }
+ .my-table-1 td img {
+  height:8rem;
+ }
+ .my-cssident:after {
+  content: "CSS: iPhone 8 (Standard) - portrait";
+ }
+}
+
+/* iPhone 8 (Standard) - landscape */
+@media only screen 
+    and (orientation : landscape) 
+    and (device-width : 375px) 
+    and (device-height : 667px) 
+    and (-webkit-device-pixel-ratio : 2)
+{ 
+ body {
+  font-size: 2rem;
+ }
+ .display-4 {
+  font-size: 4rem;
+ }
+ .lead {
+  font-size: 1.6rem;
+ }
+ .btn-lg {
+  font-size: 2rem;
+  line-height: 1.8;
+ }
+ .my-pic-header {
+  margin-top: 0.5rem;
+  height: 130px;
+ }
+ .my-div-mobile {
+  width: 36.1rem;
+ }
+ .my-btn-3 {
+  width: 11.5rem;
+ }
+ .my-btn-5 {
+  width: 6.3rem;
+ }
+ .my-btn-pic-3 {
+  height: 8rem;
+  font-size: 1.75rem;
+ }
+ .my-btn-pic-3 img {
+  height: 4.25rem;
+ }
+ .my-btn-pic-3 div {
+  font-size: 1.5rem;
+ }
+ .my-btn-pic-5 {
+  height: 6.3rem;
+  font-size: 1rem;
+ }
+ .my-btn-pic-5 div {
+  font-size: 1rem;
+ }
+ .macid {
+  font-family:"Courier";
+ }
+ .my-cssident:after {
+  content: "CSS: iPhone 8 (Standard) - landscape";
+ }
+}
