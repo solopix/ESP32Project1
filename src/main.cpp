@@ -5,10 +5,10 @@
 #include "AsyncTCP.h"
 #include "ESPAsyncWebServer.h"
 #include "ESPmDNS.h"
-#include <TimeLib.h>
+#include "TimeLib.h"
 #include "DHT.h"
-#include <OneWire.h>
-#include <DallasTemperature.h>
+#include "OneWire.h"
+#include "DallasTemperature.h"
 
 // https://github.com/espressif/arduino-esp32
 
@@ -62,7 +62,7 @@ String getTimeStamp() {
   char MillisOfSecondString[5] = {0};
   sprintf(MillisOfSecondString, "%03d", MillisOfSecond);
   if (!getLocalTime(&timeinfo)) { // Failed to obtain time
-    time_t t = now(); 
+    time_t t = now();
     sprintf(DateAndTimeString, PSTR("%4d-%02d-%02d %02d:%02d:%02d"), year(t), month(t), day(t), hour(t), minute(t), second(t));
   } else {
     strftime(DateAndTimeString, sizeof(DateAndTimeString), "%Y-%m-%d %H:%M:%S", &timeinfo);
@@ -142,7 +142,7 @@ void SortWlanNetworks() {
   String tmpWLANbssid = "";
   String tmpWLANchannel = "";
   String tmpWLANsecure = "";
-  bool   tmpWLANhidden = false;  
+  bool   tmpWLANhidden = false;
   while (sortiert == false) {
     sortiert = true;
     for (int i = 1; i < WLANcount; ++i) {
@@ -153,19 +153,19 @@ void SortWlanNetworks() {
         tmpWLANbssid = WLANbssid[i];
         tmpWLANchannel = WLANchannel[i];
         tmpWLANsecure = WLANsecure[i];
-        tmpWLANhidden = WLANhidden[i];  
+        tmpWLANhidden = WLANhidden[i];
         WLANrssi[i] = WLANrssi[i + 1];
         WLANssid[i] = WLANssid[i + 1];
         WLANbssid[i] = WLANbssid[i + 1];
         WLANchannel[i] = WLANchannel[i + 1];
         WLANsecure[i] = WLANsecure[i + 1];
-        WLANhidden[i] = WLANhidden[i + 1];  
+        WLANhidden[i] = WLANhidden[i + 1];
         WLANrssi[i + 1] = tmpWLANrssi;
         WLANssid[i + 1] = tmpWLANssid;
         WLANbssid[i + 1] = tmpWLANbssid;
         WLANchannel[i + 1] = tmpWLANchannel;
         WLANsecure[i + 1] = tmpWLANsecure;
-        WLANhidden[i + 1] = tmpWLANhidden;  
+        WLANhidden[i + 1] = tmpWLANhidden;
       }
     }
   }
@@ -394,7 +394,7 @@ int dhtLastTime = 0;
 //             https://libraries.io/github/me-no-dev/ESPAsyncWebServer
 //             https://gitter.im/me-no-dev/ESPAsyncWebServer
 //             https://randomnerdtutorials.com/esp8266-web-server-spiffs-nodemcu/
-// 
+//
 //             http://192.168.1.86
 //             http://192.168.1.86/ptr
 //             http://192.168.1.86/test
@@ -600,7 +600,7 @@ String  GetHTML(String SPIFFSPrefix) {
   if (DHTenabled == true) {
     while (dhtQuery == true) {
       delay(100);
-    }  
+    }
     h += "  <p class=\"my-p-header\">DHT22</p>\n";
     h += "  <div class=\"my-div-mobile\">\n";
     h += "   <p class=\"lead\">" + DHTtimestamp + "</p>\n";
@@ -1102,7 +1102,7 @@ void setup() {
     String json = GetWlanNetworksJson();
     request->send(200, "application/json", json);
     json = String();
-  });  
+  });
 
   // WebServer - Catch-All Handlers - Any request that can not find a Handler that canHandle it ends in the callbacks below.
   server.onNotFound(onRequest);
